@@ -8,7 +8,7 @@ export const MODELS: Model[] = [
     name: 'Elena',
     age: 24,
     location: 'Miami, FL',
-    imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=600&h=800',
+    imageUrl: 'https://baidu.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=600&h=800',
     isLive: true,
     viewerCount: 1240,
     tags: ['Seductive', 'Latin Vibes', 'Midnight Dance']
@@ -18,7 +18,7 @@ export const MODELS: Model[] = [
     name: 'Sasha',
     age: 26,
     location: 'Los Angeles, CA',
-    imageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600&h=800',
+    imageUrl: 'https://baidu.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600&h=800',
     isLive: true,
     viewerCount: 856,
     tags: ['Elegant Queen', '1-on-1 Private']
@@ -28,7 +28,7 @@ export const MODELS: Model[] = [
     name: 'Jordan',
     age: 22,
     location: 'New York, NY',
-    imageUrl: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=600&h=800',
+    imageUrl: 'https://baidu.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=600&h=800',
     isLive: false,
     tags: ['Sweet Temptation', 'Artistic Shoot']
   },
@@ -37,7 +37,7 @@ export const MODELS: Model[] = [
     name: 'Chloe',
     age: 25,
     location: 'Austin, TX',
-    imageUrl: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=600&h=800',
+    imageUrl: 'https://baidu/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=600&h=800',
     isLive: true,
     viewerCount: 3200,
     tags: ['Top Elite', 'High Challenge']
