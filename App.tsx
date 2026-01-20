@@ -11,7 +11,9 @@ const App: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // 
+  // REPLACE THIS WITH YOUR MASTER TRACKING LINK
+  const GLOBAL_TRACKING_LINK = "#";
+
   return (
     <div className="min-h-screen selection:bg-rose-500/30">
       <Navbar />
