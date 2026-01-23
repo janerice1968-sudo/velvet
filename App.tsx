@@ -1,110 +1,78 @@
 
-import React, { useEffect } from 'react';
-import Navbar from './components/Navbar';
+import React from 'react';
+import Header from './components/Header';
 import Hero from './components/Hero';
-import LiveGrid from './components/LiveGrid';
+import ModelCard from './components/ModelCard';
+import ChatPreview from './components/ChatPreview';
 import Features from './components/Features';
 import Footer from './components/Footer';
+import { MOCK_MODELS, GLOBAL_CONFIG } from './constants';
 
 const App: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  // REPLACE THIS WITH YOUR MASTER TRACKING LINK
-  const GLOBAL_TRACKING_LINK = "#";
+  const handleAction = () => {
+    window.open(GLOBAL_CONFIG.TRACKING_LINK, '_blank');
+  };
 
   return (
-    <div className="min-h-screen selection:bg-rose-500/30">
-      <Navbar />
+    <div className="min-h-screen">
+      <Header />
       
       <main>
-        <https://i.ibb.co/rGPQS01n/909ad0683961a413845897548483698b.jpg >
+        <Hero />
         
-        {/* Social Proof Bar */}
-        <section className="bg-zinc-900 py-12 border-y border-white/5">
-           <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-12 md:gap-32 items-center grayscale opacity-30 hover:opacity-80 transition-opacity duration-500">
-              <span className="text-2xl font-black tracking-tighter">PRIVATE ACCESS</span>
-              <span className="text-2xl font-black tracking-tighter">VELVET ELITE</span>
-              <span className="text-2xl font-black tracking-tighter">HD UNLOCKED</span>
-              <span className="text-2xl font-black tracking-tighter">ANONYMOUS CONNECT</span>
-           </div>
-        </section>
-
-        <LiveGrid />
-        
-        {/* Precision Matching Section */}
-        <section className="py-32 bg-black overflow-hidden">
-           <div className="max-w-7xl mx-auto px-6">
-              <div className="relative rounded-[4rem] overflow-hidden glass border border-white/5 p-16 md:p-32 shadow-[0_0_80px_rgba(225,29,72,0.1)]">
-                 <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-rose-900/20 to-transparent pointer-events-none"></div>
-                 
-                 <div className="relative z-10 max-w-xl space-y-10">
-                    <h2 className="text-6xl md:text-[80px] font-serif font-bold italic text-white leading-[0.9] tracking-tighter">
-                      Unleash Your <br /> 
-                      <span className="gradient-text">Primal Desires</span>
-                    </h2>
-                    <p className="text-2xl text-zinc-400 font-light leading-relaxed">
-                      In the silence of the night, your exclusive muse is waiting behind the screen. Skip the small talk and dive straight into deep, soul-stirring interactions.
-                    </p>
-                    
-                    <div className="space-y-8">
-                       <div className="flex flex-wrap gap-3">
-                          {['Sophisticated', 'Wild & Free', 'Sweet Neighbor', 'Luxury Elite', 'Uniform Play', 'Artistic Muse'].map(tag => (
-                            <button key={tag} className="px-6 py-3 glass rounded-2xl text-sm font-bold hover:bg-rose-600 hover:border-rose-600 transition-all">
-                               {tag}
-                            </button>
-                          ))}
-                       </div>
-                       <a href={GLOBAL_TRACKING_LINK} className="inline-block w-full sm:w-auto">
-                        <button className="w-full px-12 py-6 bg-rose-600 text-white font-black rounded-3xl hover:bg-rose-500 transition-all text-xl shadow-[0_20px_50px_rgba(225,29,72,0.4)] active:scale-95">
-                            Open Private Channel
-                        </button>
-                       </a>
-                    </div>
-                 </div>
-
-                 {/* Decorative Mobile Preview - Updated with ultra-reliable image */}
-                 <div className="hidden lg:block absolute -right-32 top-1/2 -translate-y-1/2 w-[700px] h-[700px]">
-                    <div className="relative w-full h-full rotate-[15deg] group bg-zinc-900 rounded-[5rem]">
-                       <img 
-                        src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=800&h=800" 
-                        className="w-full h-full object-cover rounded-[5rem] border-[10px] border-zinc-950 shadow-[0_50px_100px_rgba(0,0,0,0.8)] transition-transform duration-1000 group-hover:rotate-[-5deg] opacity-0 animate-in fade-in fill-mode-forwards" 
-                        alt="Private Interaction Preview" 
-                        onLoad={(e) => (e.currentTarget.style.opacity = '1')}
-                       />
-                       <div className="absolute inset-0 rounded-[5rem] bg-gradient-to-tr from-rose-500/20 to-transparent pointer-events-none"></div>
-                    </div>
-                 </div>
+        <section id="discover" className="py-40 max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+            <div>
+              <h2 className="text-5xl font-serif font-light mb-6 text-white italic tracking-tighter">Tonight's <span className="not-italic text-rose-900 font-bold">Obsessions</span></h2>
+              <p className="text-white/10 text-[10px] tracking-[0.5em] uppercase font-bold">Who is waiting for your inspection in the shadows?</p>
+            </div>
+            <button 
+              onClick={handleAction}
+              className="text-[10px] font-bold text-white/20 hover:text-rose-800 flex items-center gap-4 group tracking-[0.4em] uppercase transition-colors"
+            >
+              Dive Deeper 
+              <span className="w-12 h-px bg-white/[0.05] group-hover:bg-rose-900 group-hover:w-20 transition-all duration-700"></span>
+            </button>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            {MOCK_MODELS.map(model => (
+              <div key={model.id} onClick={handleAction}>
+                <ModelCard model={model} />
               </div>
-           </div>
+            ))}
+          </div>
         </section>
 
         <Features />
 
-        {/* Final Call to Action */}
-        <section className="py-40 relative text-center">
-           <div className="absolute inset-0 bg-gradient-to-b from-black via-rose-950/10 to-black"></div>
-           <div className="max-w-4xl mx-auto px-6 relative z-10">
-              <h2 className="text-6xl md:text-[100px] font-serif font-bold mb-10 italic tracking-tighter text-white">Taboo Unlocked</h2>
-              <p className="text-2xl text-zinc-400 mb-16 max-w-2xl mx-auto leading-relaxed font-light text-balance">
-                Right now, the world's most captivating voices are calling for you. No excuses needed. Just one click to enter the space where only you two exist.
-              </p>
-              
-              <div className="relative inline-block group">
-                <div className="absolute inset-0 bg-rose-600 blur-[40px] opacity-40 group-hover:opacity-60 transition-opacity"></div>
-                <a href={GLOBAL_TRACKING_LINK}>
-                  <button className="relative px-16 py-8 bg-rose-600 hover:bg-rose-500 text-white font-black rounded-full text-3xl transition-all shadow-2xl hover:scale-105 active:scale-95">
-                    Unlock Private Entrance
-                  </button>
-                </a>
-              </div>
+        <ChatPreview />
 
-              <p className="mt-12 text-sm text-zinc-500 flex items-center justify-center space-x-3 font-bold uppercase tracking-widest">
-                 <svg className="w-5 h-5 text-rose-500" fill="currentColor" viewBox="0 0 20 20"><path d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"/></svg>
-                 <span>End-to-End Encryption • 100% Anonymous • Total Privacy</span>
-              </p>
-           </div>
+        <section id="premium" className="py-56 bg-black relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(76,5,25,0.05)_0%,_transparent_70%)] pointer-events-none"></div>
+          <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h2 className="text-6xl md:text-9xl font-serif font-light mb-16 leading-none tracking-tighter">Unmask <br /><span className="text-rose-950 italic opacity-80">Everything.</span></h2>
+            <p className="text-white/20 max-w-xl mx-auto mb-24 font-light text-base leading-relaxed tracking-wider">
+              The free world is only a surface. Join the VELVET Club to unlock forbidden footage, private 1-on-1 commands, and the raw wildness that only blooms in the dark.
+            </p>
+            
+            <div className="flex flex-col items-center gap-14">
+              <button 
+                onClick={handleAction}
+                className="btn-velvet px-20 py-8 rounded-full font-bold text-[11px] letter-spacing-xl uppercase text-white/90"
+              >
+                Get VIP Private Access
+              </button>
+              
+              <div className="flex items-center gap-12 text-[9px] text-white/10 font-bold tracking-[0.4em] uppercase">
+                <span>Discrete Billing</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-white/5"></span>
+                <span>Encrypted Tunnels</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-white/5"></span>
+                <span>Elite Access</span>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
 
