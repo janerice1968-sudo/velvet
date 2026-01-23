@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
   // Active user avatars
   const avatars = [
     'https://i.ibb.co/7dtXwT5z/20201014213922-fd65f.jpg',
-    'https://https://i.ibb.co/nsxNfFGY/20230326221613-7e73d-thumb-400-0.jpg',
+    'https://i.ibb.co/nsxNfFGY/20230326221613-7e73d-thumb-400-0.jpg',
    'https://i.ibb.co/DgWrYzKR/myyf255rzvn.jpg',
     'https://i.ibb.co/zHVynr62/sljpiz0y2ht.jpg'
   ];
