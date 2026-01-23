@@ -68,7 +68,7 @@ const App: React.FC = () => {
                  <div className="hidden lg:block absolute -right-32 top-1/2 -translate-y-1/2 w-[700px] h-[700px]">
                     <div className="relative w-full h-full rotate-[15deg] group bg-zinc-900 rounded-[5rem]">
                        <img 
-                        src="https://i.ibb.co/rGPQS01n/909ad0683961a413845897548483698b.jpg&fit=crop&q=80&w=800&h=800" 
+                        src="https://i.ibb.co/rGPQS01n/909ad0683961a413845897548483698b.jpg" 
                         className="w-full h-full object-cover rounded-[5rem] border-[10px] border-zinc-950 shadow-[0_50px_100px_rgba(0,0,0,0.8)] transition-transform duration-1000 group-hover:rotate-[-5deg] opacity-0 animate-in fade-in fill-mode-forwards" 
                         alt="Private Interaction Preview" 
                         onLoad={(e) => (e.currentTarget.style.opacity = '1')}
