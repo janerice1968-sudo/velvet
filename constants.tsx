@@ -17,8 +17,8 @@ export const GLOBAL_CONFIG = {
 // ==========================================
 export const TRACKING_LINKS = {
   MAIN_CTA: "https://baidu.com", // 主行动按钮 (Hero, Footer, Matching)
-  LIVE_WATCH: "https://your-tracking-link-here.com/live", // 模特点击观看链接
-  NAV_JOIN: "https://your-tracking-link-here.com/signup", // 导航栏注册链接
+  LIVE_WATCH: "https://baidu.com", // 模特点击观看链接
+  NAV_JOIN: "https://baidu.com", // 导航栏注册链接
 };
 
 // ==========================================
