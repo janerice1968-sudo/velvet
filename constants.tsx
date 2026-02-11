@@ -16,9 +16,9 @@ export const GLOBAL_CONFIG = {
 // 🔗 在这里更换您的追踪链接 (Tracking Links)
 // ==========================================
 export const TRACKING_LINKS = {
-  MAIN_CTA: "https://t.acrsmartcam.com/402888/8873/0?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN", // 主行动按钮 (Hero, Footer, Matching)
-  LIVE_WATCH: "https://t.acrsmartcam.com/402888/8873/0?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN", // 模特点击观看链接
-  NAV_JOIN: "https://t.acrsmartcam.com/402888/8873/0?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN", // 导航栏注册链接
+  MAIN_CTA: "https://t.acrsmartcam.com/402888/7083?bo=2779,2778,2777,2776,2775&aff_sub5=SF_006OG000004lmDN", // 主行动按钮 (Hero, Footer, Matching)
+  LIVE_WATCH: "https://t.acrsmartcam.com/402888/7083?bo=2779,2778,2777,2776,2775&aff_sub5=SF_006OG000004lmDN", // 模特点击观看链接
+  NAV_JOIN: "https://t.acrsmartcam.com/402888/7083?bo=2779,2778,2777,2776,2775&aff_sub5=SF_006OG000004lmDN", // 导航栏注册链接
 };
 
 // ==========================================
