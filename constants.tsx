@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Model, Testimonial } from './types';
+import { Model, Testimonial, ChatMessage } from './types';
 
 // ==========================================
 // ⚙️ 全局配置 (Global Configuration)
@@ -16,9 +16,9 @@ export const GLOBAL_CONFIG = {
 // 🔗 在这里更换您的追踪链接 (Tracking Links)
 // ==========================================
 export const TRACKING_LINKS = {
-  MAIN_CTA: "https://t.acrsmartcam.com/402888/7083?bo=2779,2778,2777,2776,2775&aff_sub5=SF_006OG000004lmDN", // 主行动按钮 (Hero, Footer, Matching)
-  LIVE_WATCH: "https://t.acrsmartcam.com/402888/7083?bo=2779,2778,2777,2776,2775&aff_sub5=SF_006OG000004lmDN", // 模特点击观看链接
-  NAV_JOIN: "https://t.acrsmartcam.com/402888/7083?bo=2779,2778,2777,2776,2775&aff_sub5=SF_006OG000004lmDN", // 导航栏注册链接
+  MAIN_CTA: "https://t.acrsmartcam.com/402888/8873/37511?aff_sub5=SF_006OG000004lmDN", // 主行动按钮 (Hero, Footer, Matching)
+  LIVE_WATCH: "https://t.acrsmartcam.com/402888/8873/37511?aff_sub5=SF_006OG000004lmDN", // 模特点击观看链接
+  NAV_JOIN: "https://t.acrsmartcam.com/402888/8873/37511?aff_sub5=SF_006OG000004lmDN", // 导航栏注册链接
 };
 
 // ==========================================
@@ -92,6 +92,30 @@ export const TESTIMONIALS: Testimonial[] = [
     user: 'Jessica R.',
     content: "Met some incredible people through the private matching system. The UI design is simply beautiful.",
     rating: 5
+  }
+];
+
+export const CHAT_MESSAGES: ChatMessage[] = [
+  {
+    id: 'c1',
+    user: 'Alex_99',
+    content: "Elena is looking incredible tonight! 🔥",
+    timestamp: '2m ago',
+    avatar: "https://i.ibb.co/tMpgLhy6/20201014213922-fd65f.jpg"
+  },
+  {
+    id: 'c2',
+    user: 'Midnight_Rider',
+    content: "Just joined the private room with Sasha. Worth every second.",
+    timestamp: 'Just now',
+    avatar: "https://i.ibb.co/F4CcV7Y7/20230326221613-7e73d-thumb-400-0.jpg"
+  },
+  {
+    id: 'c3',
+    user: 'LuxuryLover',
+    content: "The 4K stream quality is insane. Best platform out there.",
+    timestamp: '5m ago',
+    avatar: "https://i.ibb.co/4gRWTH5W/myyf255rzvn.jpg"
   }
 ];
 
