@@ -1,26 +1,20 @@
 
-export interface Model {
-  id: string;
-  name: string;
-  age: number;
-  location: string;
-  imageUrl: string;
-  isLive: boolean;
-  viewerCount?: number;
-  tags: string[];
+export interface InspirationResult {
+  title: string;
+  description: string;
+  elements: string[];
 }
 
-export interface Testimonial {
+export interface GalleryItem {
   id: string;
-  user: string;
-  content: string;
-  rating: number;
+  url: string;
+  title: string;
+  category: string;
 }
 
-export interface ChatMessage {
-  id: string;
-  user: string;
-  content: string;
-  timestamp: string;
-  avatar?: string;
+export enum NavigationSection {
+  Home = 'home',
+  Philosophy = 'philosophy',
+  Gallery = 'gallery',
+  Experience = 'experience'
 }
