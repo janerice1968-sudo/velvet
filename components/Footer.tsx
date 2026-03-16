@@ -1,5 +1,8 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Twitter, Instagram, Youtube, ShieldCheck } from 'lucide-react';
+import { TRACKING_LINKS } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -13,55 +16,62 @@ const Footer: React.FC = () => {
               </div>
               <span className="text-2xl font-serif font-bold tracking-tight text-white">Velvet</span>
             </div>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className="text-zinc-500 text-sm leading-relaxed">
               Global leading high-end private social platform. Redefining intimate interaction with technology, providing infinite possibilities for your late night.
             </p>
             <div className="flex space-x-4">
-              <div className="w-10 h-10 rounded-full glass border border-white/10 flex items-center justify-center cursor-pointer hover:text-rose-400 transition-all font-bold">𝕏</div>
-              <div className="w-10 h-10 rounded-full glass border border-white/10 flex items-center justify-center cursor-pointer hover:text-rose-400 transition-all font-bold">IG</div>
-              <div className="w-10 h-10 rounded-full glass border border-white/10 flex items-center justify-center cursor-pointer hover:text-rose-400 transition-all font-bold">TT</div>
+              {[Twitter, Instagram, Youtube].map((Icon, i) => (
+                <motion.div 
+                  key={i}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  className="w-10 h-10 rounded-full glass border border-white/10 flex items-center justify-center cursor-pointer hover:text-rose-400 transition-all"
+                >
+                  <Icon size={18} />
+                </motion.div>
+              ))}
             </div>
           </div>
 
           <div>
             <h4 className="text-white font-bold mb-6">Explore</h4>
-            <ul className="space-y-4 text-sm text-gray-500">
-              <li><a href="#" className="hover:text-rose-400 transition-colors">Recommended Muses</a></li>
-              <li><a href="#" className="hover:text-rose-400 transition-colors">Private Live</a></li>
-              <li><a href="#" className="hover:text-rose-400 transition-colors">Popular Events</a></li>
-              <li><a href="#" className="hover:text-rose-400 transition-colors">Privilege Access</a></li>
+            <ul className="space-y-4 text-sm text-zinc-500">
+              <li><a href={TRACKING_LINKS.MAIN_CTA} className="hover:text-rose-400 transition-colors">Recommended Muses</a></li>
+              <li><a href={TRACKING_LINKS.MAIN_CTA} className="hover:text-rose-400 transition-colors">Private Live</a></li>
+              <li><a href={TRACKING_LINKS.MAIN_CTA} className="hover:text-rose-400 transition-colors">Popular Events</a></li>
+              <li><a href={TRACKING_LINKS.MAIN_CTA} className="hover:text-rose-400 transition-colors">Privilege Access</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-bold mb-6">Privacy & Support</h4>
-            <ul className="space-y-4 text-sm text-gray-500">
-              <li><a href="#" className="hover:text-rose-400 transition-colors">Help Center</a></li>
-              <li><a href="#" className="hover:text-rose-400 transition-colors">Safety Guide</a></li>
-              <li><a href="#" className="hover:text-rose-400 transition-colors">Privacy Encryption</a></li>
-              <li><a href="#" className="hover:text-rose-400 transition-colors">Contact Us</a></li>
+            <ul className="space-y-4 text-sm text-zinc-500">
+              <li><a href={TRACKING_LINKS.MAIN_CTA} className="hover:text-rose-400 transition-colors">Help Center</a></li>
+              <li><a href={TRACKING_LINKS.MAIN_CTA} className="hover:text-rose-400 transition-colors">Safety Guide</a></li>
+              <li><a href={TRACKING_LINKS.MAIN_CTA} className="hover:text-rose-400 transition-colors">Privacy Encryption</a></li>
+              <li><a href={TRACKING_LINKS.MAIN_CTA} className="hover:text-rose-400 transition-colors">Contact Us</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-bold mb-6">Legal</h4>
-            <ul className="space-y-4 text-sm text-gray-500">
-              <li><a href="#" className="hover:text-rose-400 transition-colors">Service Agreement</a></li>
-              <li><a href="#" className="hover:text-rose-400 transition-colors">Privacy Protection</a></li>
-              <li><a href="#" className="hover:text-rose-400 transition-colors">2257 Records</a></li>
-              <li><a href="#" className="hover:text-rose-400 transition-colors">Traceless Tech</a></li>
+            <ul className="space-y-4 text-sm text-zinc-500">
+              <li><a href={TRACKING_LINKS.MAIN_CTA} className="hover:text-rose-400 transition-colors">Service Agreement</a></li>
+              <li><a href={TRACKING_LINKS.MAIN_CTA} className="hover:text-rose-400 transition-colors">Privacy Protection</a></li>
+              <li><a href={TRACKING_LINKS.MAIN_CTA} className="hover:text-rose-400 transition-colors">2257 Records</a></li>
+              <li><a href={TRACKING_LINKS.MAIN_CTA} className="hover:text-rose-400 transition-colors">Traceless Tech</a></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/5 pt-12 text-center">
-          <div className="inline-block px-6 py-2 rounded-full border border-rose-500/20 text-rose-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
+          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-rose-500/20 text-rose-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
+            <ShieldCheck size={12} />
             Adults Only (18+)
           </div>
-          <p className="text-gray-600 text-xs leading-relaxed max-w-4xl mx-auto">
+          <p className="text-zinc-600 text-xs leading-relaxed max-w-4xl mx-auto">
             This platform contains explicit adult interactive content. You must be at least 18 years old (or the legal age in your jurisdiction) to access. Entering means you promise you have reached the legal age and are willing to abide by our private interaction rules.
           </p>
-          <p className="mt-6 text-gray-700 text-[10px]">© {new Date().getFullYear()} Velvet Social Club. All Rights Reserved.</p>
+          <p className="mt-6 text-zinc-700 text-[10px]">© {new Date().getFullYear()} Velvet Social Club. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

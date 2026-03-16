@@ -1,34 +1,56 @@
 
 import React from 'react';
-import { MODELS, TRACKING_LINKS, ICONS } from '../constants';
+import { motion } from 'framer-motion';
+import { Users, Heart, ArrowRight, Play } from 'lucide-react';
+import { MODELS, TRACKING_LINKS } from '../constants';
 
 const LiveGrid: React.FC = () => {
   return (
     <section className="py-24 relative overflow-hidden bg-zinc-950/20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-10">
-          <div className="space-y-4">
-            <h2 className="text-5xl md:text-7xl font-serif font-bold italic tracking-tighter">Elite Muses</h2>
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <h2 className="text-5xl md:text-7xl font-serif font-bold italic tracking-tighter text-white">Elite Muses</h2>
             <p className="text-zinc-500 text-xl font-light max-w-md">Discover top-tier creators ready to fulfill your most intimate requests.</p>
-          </div>
+          </motion.div>
           <div className="flex items-center space-x-3 overflow-x-auto pb-4 w-full md:w-auto no-scrollbar scroll-smooth">
-            {['All', 'Trending', 'Elite 100', 'New Arrivals', 'VIP Private'].map((tag) => (
-              <button key={tag} className="whitespace-nowrap px-8 py-3.5 rounded-full glass border border-white/10 hover:border-rose-500 hover:text-rose-500 transition-all text-xs font-black tracking-widest uppercase">
+            {['All', 'Trending', 'Elite 100', 'New Arrivals', 'VIP Private'].map((tag, idx) => (
+              <motion.button 
+                key={tag}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+                className="whitespace-nowrap px-8 py-3.5 rounded-full glass border border-white/10 hover:border-rose-500 hover:text-rose-500 transition-all text-xs font-black tracking-widest uppercase"
+              >
                 {tag}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-16">
-          {MODELS.map((model) => (
-            <div key={model.id} className="group">
-              <div className="relative aspect-[4/6] rounded-[2.5rem] overflow-hidden mb-8 shadow-2xl transition-all duration-700 hover:shadow-rose-900/20 border border-white/5">
+          {MODELS.map((model, idx) => (
+            <motion.div 
+              key={model.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="group"
+            >
+              <div className="relative aspect-[4/6] rounded-[2.5rem] overflow-hidden mb-8 shadow-2xl transition-all duration-700 hover:shadow-rose-900/20 border border-white/5 bg-zinc-900">
                 <img 
                   src={model.imageUrl} 
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 group-hover:rotate-2" 
                   alt={model.name} 
                   loading="lazy"
+                  referrerPolicy="no-referrer"
                 />
                 
                 {/* 状态标签 */}
@@ -40,7 +62,7 @@ const LiveGrid: React.FC = () => {
                     </div>
                   )}
                   <div className="bg-black/40 backdrop-blur-xl border border-white/10 px-4 py-2 rounded-full text-[10px] font-black text-white flex items-center space-x-2">
-                    <ICONS.User />
+                    <Users size={12} />
                     <span>{model.viewerCount?.toLocaleString() || 'Exclusive'}</span>
                   </div>
                 </div>
@@ -52,9 +74,14 @@ const LiveGrid: React.FC = () => {
                       "I love exploring boundaries and creating moments that we'll both remember forever..."
                     </p>
                     <a href={TRACKING_LINKS.LIVE_WATCH}>
-                      <button className="w-full py-5 bg-white text-black font-black rounded-2xl text-xs uppercase tracking-widest hover:bg-rose-600 hover:text-white transition-all shadow-2xl">
+                      <motion.button 
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full py-5 bg-white text-black font-black rounded-2xl text-xs uppercase tracking-widest hover:bg-rose-600 hover:text-white transition-all shadow-2xl flex items-center justify-center gap-2"
+                      >
+                          <Play size={12} fill="currentColor" />
                           Access Private Room
-                      </button>
+                      </motion.button>
                     </a>
                   </div>
                 </div>
@@ -68,9 +95,13 @@ const LiveGrid: React.FC = () => {
                   <p className="text-xs text-zinc-600 font-black uppercase tracking-widest">{model.location}</p>
                 </div>
                 <div className="flex items-center gap-2">
-                   <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center hover:bg-rose-600/20 transition-colors cursor-pointer group-hover:border-rose-500/30">
-                      <ICONS.Heart />
-                   </div>
+                   <motion.div 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center hover:bg-rose-600/20 transition-colors cursor-pointer group-hover:border-rose-500/30 text-zinc-500 hover:text-rose-500"
+                   >
+                      <Heart size={18} />
+                   </motion.div>
                 </div>
               </div>
               
@@ -80,19 +111,21 @@ const LiveGrid: React.FC = () => {
                    <span key={tag} className="text-[8px] border border-white/5 px-3 py-1.5 rounded-lg text-zinc-500 font-bold tracking-widest uppercase group-hover:text-zinc-300 transition-colors">{tag}</span>
                  ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         
         <div className="mt-32 text-center">
            <a href={TRACKING_LINKS.MAIN_CTA} className="inline-block relative group">
                 <div className="absolute inset-0 bg-rose-600 blur-[30px] opacity-0 group-hover:opacity-20 transition-opacity"></div>
-                <button className="relative px-16 py-6 glass border border-white/10 text-white font-black rounded-2xl hover:bg-white/5 transition-all inline-flex items-center space-x-6 group shadow-2xl">
-                <span className="text-xl tracking-tight">Meet Your Favorite Muse</span>
-                <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-                </button>
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative px-16 py-6 glass border border-white/10 text-white font-black rounded-2xl hover:bg-white/5 transition-all inline-flex items-center space-x-6 group shadow-2xl"
+                >
+                  <span className="text-xl tracking-tight">Meet Your Favorite Muse</span>
+                  <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform text-rose-500" />
+                </motion.button>
            </a>
         </div>
       </div>

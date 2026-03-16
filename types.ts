@@ -16,3 +16,11 @@ export interface Testimonial {
   content: string;
   rating: number;
 }
+
+export interface ChatMessage {
+  id: string;
+  user: string;
+  content: string;
+  timestamp: string;
+  avatar?: string;
+}
