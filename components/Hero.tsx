@@ -2,7 +2,7 @@
 import React from 'react';
 
 const Hero: React.FC = () => {
-  const EXTERNAL_LINK = "https://t.acrsmartcam.com/406447/8873/37511?source=facebook_ads&aff_sub5=SF_006OG000004lmDN";
+  const EXTERNAL_LINK = "https://t.acrsmartcam.com/402888/8873/37511?aff_sub5=SF_006OG000004lmDN";
 
   return (
     <div id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden atmosphere-gradient text-center">
