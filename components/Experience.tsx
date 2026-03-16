@@ -12,7 +12,7 @@ const SENSORY_TRIGGERS = [
 ];
 
 const Experience: React.FC = () => {
-  const EXTERNAL_LINK = "https://t.acrsmartcam.com/406447/8873/37511?source=facebook_ads&aff_sub5=SF_006OG000004lmDN";
+  const EXTERNAL_LINK = "https://t.acrsmartcam.com/402888/8873/37511?aff_sub5=SF_006OG000004lmDN";
   const [activeTrigger, setActiveTrigger] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<{ title: string; narrative: string } | null>(null);
