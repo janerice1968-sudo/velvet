@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 const App: React.FC = () => {
-  const EXTERNAL_LINK = "https://t.acrsmartcam.com/402888/8873/37511?aff_sub5=SF_006OG000004lmDN";
+  const EXTERNAL_LINK = "https://t.acrsmartcam.com/402888/8873/37527?aff_sub5=SF_006OG000004lmDN";
   const [email, setEmail] = useState('');
   const [nickname, setNickname] = useState('');
   const [msgIndex, setMsgIndex] = useState(0);
