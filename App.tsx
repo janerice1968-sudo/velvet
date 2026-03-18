@@ -2,9 +2,8 @@
 import React, { useState, useEffect } from 'react';
 
 const App: React.FC = () => {
-  const [status, setStatus] = useState<'checking' | 'eligible' | 'blocked_country' | 'blocked_device' | 'blocked_vpn' | 'error'>('checking');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [redirectUrl, setRedirectUrl] = useState('');
+  const OFFER_URL = "https://t.acrsmartcam.com/402888/8873/0?aff_sub5=SF_006OG000004lmDN";
+  const [status, setStatus] = useState<'checking' | 'eligible' | 'blocked_country' | 'blocked_device'>('checking');
   const [msgIndex, setMsgIndex] = useState(0);
 
   const messages = [
@@ -22,27 +21,32 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const checkAccess = async () => {
+      // Device detection (Mobile/Tablet)
+      const isMobileOrTablet = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Tablet|PlayBook/i.test(navigator.userAgent);
+      
+      if (isMobileOrTablet) {
+        setStatus('blocked_device');
+        return;
+      }
+
       try {
-        const response = await fetch('/api/check-access');
+        const response = await fetch('https://ipapi.co/json/');
         const data = await response.json();
         
-        if (data.status === 'eligible') {
+        if (data.country_code === 'US') {
           setStatus('eligible');
-          setRedirectUrl(data.redirectUrl);
           
           // Random delay redirect (1500ms ~ 2500ms)
           const delay = Math.floor(Math.random() * (2500 - 1500 + 1)) + 1500;
           setTimeout(() => {
-            window.location.href = data.redirectUrl;
+            window.location.href = OFFER_URL;
           }, delay);
         } else {
-          setStatus(data.status);
-          setErrorMessage(data.message);
+          setStatus('blocked_country');
         }
       } catch (error) {
-        console.error("Access check failed:", error);
-        setStatus('error');
-        setErrorMessage("Connection error. Please try again later.");
+        console.error("IP check failed:", error);
+        setStatus('blocked_country');
       }
     };
 
@@ -51,9 +55,7 @@ const App: React.FC = () => {
 
   const handleButtonClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (redirectUrl) {
-      window.location.href = redirectUrl;
-    }
+    window.location.href = OFFER_URL;
   };
 
   return (
@@ -95,8 +97,11 @@ const App: React.FC = () => {
             {status === 'checking' && (
               <p className="text-zinc-500 animate-pulse">Verifying access...</p>
             )}
-            {(status === 'blocked_country' || status === 'blocked_device' || status === 'blocked_vpn' || status === 'error') && (
-              <p className="text-red-400 font-medium">{errorMessage}</p>
+            {status === 'blocked_country' && (
+              <p className="text-red-400 font-medium">This content is available for US visitors only.</p>
+            )}
+            {status === 'blocked_device' && (
+              <p className="text-red-400 font-medium">Desktop access required to continue.</p>
             )}
             {status === 'eligible' && (
               <div className="h-5 overflow-hidden">
