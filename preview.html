@@ -1,0 +1,38 @@
+<script>
+
+const OFFER = "https://t.acrsmartcam.com/402888/8873/0?aff_sub5=SF_006OG000004lmDN";
+
+// 判断手机
+function isMobile() {
+  return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+// 基础延迟（桌面 1.5~2.5秒）
+var baseDelay = Math.floor(Math.random() * (2500 - 1500 + 1)) + 1500;
+
+// 手机延迟 ×3
+var delay = isMobile() ? baseDelay * 3 : baseDelay;
+
+// 按钮
+document.getElementById("goBtn").href = OFFER;
+
+// 倒计时
+var time = Math.ceil(delay / 1000);
+var t = document.getElementById("t");
+t.innerText = time;
+
+var timer = setInterval(function(){
+  time--;
+  if(time <= 0){
+    clearInterval(timer);
+  } else {
+    t.innerText = time;
+  }
+},1000);
+
+// 自动跳转
+setTimeout(function(){
+  window.location.href = OFFER;
+}, delay);
+
+</script>
